@@ -52,20 +52,20 @@ else:
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
 
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
+# ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
                        
 # SECRET_KEY=')g9w8lcl6t1mazj-n%wohniub34*lrg+md%41ck1f6+3#box)'
 
 # SECURITY WARNING: don'Configure whitenoise to serve static files. run with debug turned on in production!
 # DEBUG=True
 
-# ALLOWED_HOSTS=[]
+ALLOWED_HOSTS=['ray-tribune.herokuapp.com']
 
 
 # Application definitionConfigure whitenoise to serve static files.
 
 INSTALLED_APPS=['bootstrap4',
-                  'news.apps.NewsConfig',
+                  'news',
                   'django.contrib.admin',
                   'django.contrib.auth',
                   'django.contrib.contenttypes',
@@ -110,14 +110,14 @@ WSGI_APPLICATION='tribune.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-DATABASES={
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'tribune',
-        'USER': 'ray',
-        'PASSWORD': '12345',
-    }
-}
+# DATABASES={
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'tribune',
+#         'USER': 'ray',
+#         'PASSWORD': '12345',
+#     }
+# }
 
 
 # Password validation
@@ -156,8 +156,8 @@ USE_TZ=True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
-STATIC_URL='/static/'
 STATIC_ROOT=os.path.join(BASE_DIR, 'staticfiles')
+STATIC_URL='/static/'
 
 STATICFILES_DIRS=[
     os.path.join(BASE_DIR, "static")
